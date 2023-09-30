@@ -1,10 +1,9 @@
 # VERGEL, CHEAN BERNARD V.
-# VERGEL, CHEAN BERNARD V.
 # LAB1 NO2
 # DUPLICATE REMOVER
 
 # Import the remove_duplicates
-from duplicate_remover import remove_duplicates
+from duplicate_remover import RemoveDuplicates
 
 # Get the number of strings as input
 n = int(input("Enter the number of strings that you wanted to input: "))
@@ -19,5 +18,5 @@ for i in range(n):
 
 # Iterate through the list of input strings and remove duplicates
 for input_str in input_strings:
-    result_str = remove_duplicates(input_str)
+    result_str = RemoveDuplicates.remove_chars(input_str)
     print(f"Result: {result_str}")
