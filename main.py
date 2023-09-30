@@ -4,9 +4,11 @@
 
 # Import the remove_duplicates
 from duplicate_remover import RemoveDuplicates
+# import pyfiglet
+import pyfiglet
 
 # Create a header.
-import pyfiglet
+
 print("")
 print("=" * 80)
 print("")
@@ -27,7 +29,6 @@ print("")
 print("\033[23mGood day,",name_of_user,"this program will ask you to input some words and delete numbers and the letters that are being repeated.\033[0m")
 print("")
 
-
 # Ask if the user wants to continue.
 agreement = str(input("\033[96mDo you want to continue answering this program? Type \033[0m\033[40m\033[33mYES\033[0m\033[96m if you want to continue and type \033[0m\033[40m\033[33mNO\033[0m\033[96m if not.\033[0m "))
 print("")
@@ -36,21 +37,39 @@ print("")
 
 # If user wants to continue, ask the user to input characters.
 if agreement.upper() == "YES":
+    # Get the number of strings as input
+        n = int(input("\033[45mEnter the number of strings that you want to input:\033[0m"))
 
+    # Initialize a list to store the input strings
+        input_strings = []
 
-# Get the number of strings as input
-    n = int(input("Enter the number of strings that you want to input: "))
+    # Loop to get N strings from the user
+        for i in range(n):
+            input_str = input(f"\033[32mEnter string {i + 1}: \033[0m")
+            duplicate_removed = RemoveDuplicates.remove_chars(input_str)
+            input_strings.append(input_str)
+            input_strings.append(duplicate_removed.replace(" ", ""))
 
-# Initialize a list to store the input strings
-    input_strings = []
+        # Iterate through the list of input strings and remove duplicates
+        print("\n\033[44mResults:\033[0m")
+        for i in range(1, len(input_strings), 2):
+            print(input_strings[i])
 
-# Loop to get N strings from the user
-for i in range(n):
-    input_str = input(f"Enter string {i + 1}: ")
-    duplicate_removed = RemoveDuplicates.remove_chars(input_str)
-    input_strings.append(input_str)
-    input_strings.append(duplicate_removed.replace(" ", ""))
+# If user don't want to continue, print I hope you are doing well. Thank you for your time.
+elif agreement.upper() == "NO":
+    print("\033[32mI hope you are doing well. Thank you for your time",name_of_user +".\U0001F600\033[0m")
 
-# Iterate through the list of input strings and remove duplicates
-for input_str in input_strings:
-    print(f"Result: {input_str}")
+# If the response of the user is no, print I hope you are doing well. Thank you for your time.
+else:
+     print("\033[32mI hope you are doing well. Thank you for your time",name_of_user + ".\U0001F600\033[0m")
+     
+# Create a footer.
+print("")
+print("=" * 80)
+print("")
+goodbye = pyfiglet.figlet_format("Visit me again", font = "puffy" )
+print (goodbye)
+print("")
+print("=" * 80)
+print("")
+print("")
